@@ -3,7 +3,8 @@
 ``STEP 1:``
 
 Import the following Data in DB (I used MongoDB as Database and default DB name as `bigbasket` and collections as `products` and `users`)
-    
+
+```    
 +--------------|--------------|---------+
 | Product Code |     Name     |  Price  |
 +--------------|--------------|---------+
@@ -13,31 +14,37 @@ Import the following Data in DB (I used MongoDB as Database and default DB name 
 |     MK1      |   Milk       |  $4.75  |
 |     OM1      |   Oatmeal    |  $3.69  |
 +--------------|--------------|---------+
+```
 
+```
 +--------------|--------------+
 | User Name    |  Password    |
 +--------------|--------------+
 |     admin    |   admin      |
 +--------------|--------------+
+```
 
 
 ``STEP 2:``
 
 Login API : I use JWT for authentication
 
+```
 POST ``http://localhost:8080/eshop/login``
 Body - 
-    ``username    admin``
-    ``password    admin``
+    username    admin
+    password    admin
+```
 
 generate the JWT for the user and subsequent requests use the token for authentication.
 
 
-# STEP 3 onwards can process in any order as per the requirement.
+``STEP 3 onwards can process in any order as per the requirement.``
 
 ``STEP 3:``
 
-Get all products details
+Get all products details.
+
 GET ``http://localhost:8080/eshop/products``
 
 
@@ -45,9 +52,11 @@ GET ``http://localhost:8080/eshop/products``
 
 Create Cart
 
-POST ``http://localhost:8080/eshop/cart``
+POST ``http://localhost:8080/eshop/cart``.
+
 Body - as per the requirement.
-``[
+```
+[
     {
     "product_code": "MK1",
     "quantity": 3
@@ -56,7 +65,8 @@ Body - as per the requirement.
     "product_code": "OM1",
     "quantity": 1
     }
-]``
+]
+```
 
 
 ``STEP 5:``
@@ -71,8 +81,11 @@ GET ``http://localhost:8080/eshop/cart``
 Modify Cart
 
 PUT ``http://localhost:8080/eshop/cart``
-Body - modified cart detials
-``[
+
+Body - modified cart detials.
+
+```
+[
     {
     "product_code": "CH1",
     "quantity": 1
@@ -85,7 +98,8 @@ Body - modified cart detials
     "product_code": "MK1",
     "quantity": 1
     }
-]``
+]
+```
 
 
 ``STEP 7:``
@@ -102,7 +116,6 @@ checkout and delete the cart.
 DELETE Cart : Delete the existing cart
 
 DEL ``http://localhost:8080/eshop/cart``
-
 
 
 ==============================================================
